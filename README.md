@@ -2,6 +2,8 @@
 
 ---
 
+Based on basic svelte examples: https://svelte.dev/examples/spread-props
+
 # svelte app
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
