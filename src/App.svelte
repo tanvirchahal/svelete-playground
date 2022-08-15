@@ -7,6 +7,7 @@
 	import Each from './Each.svelte'
 	import AwaitBlock from './AwaitBlock.svelte'
 	import Dom from './Dom.svelte'
+	import Forms from './Forms.svelte'
 
 	let name = 'Svelte';
 	let htmlString = '<strong>Something</strong> strong'
@@ -35,8 +36,9 @@
 <Props {...person}  age= {42000}/>
 <ConditionalLogic />
 <Each />
-<AwaitBlock /> -->
-<Dom on:message={handleClick}/>
+<AwaitBlock />
+<Dom on:message={handleClick}/> -->
+<Forms />
 
 <style>
 	h1 {
