@@ -9,6 +9,18 @@
 	import Dom from './Dom.svelte'
 	import Forms from './Forms.svelte'
 
+
+	//Counter with store
+	import { count } from './Store/Store'
+	import Decrement from './Counter/Decrement.svelte'
+	import Increment from './Counter/Increment.svelte'
+	import Resetter from './Counter/Resetter.svelte'
+
+	let countValue;
+	count.subscribe(value => {
+		countValue = value;
+	});
+
 	let name = 'Svelte';
 	let htmlString = '<strong>Something</strong> strong'
 
@@ -40,6 +52,13 @@
 <Dom on:message={handleClick}/> -->
 <Forms />
 
+
+
+<!-- Store Counter -->
+{ countValue }
+<Increment /> 
+<Decrement />
+<Resetter />
 <style>
 	h1 {
 		font-size:1em;
