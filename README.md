@@ -105,3 +105,108 @@ Then, from within your project folder:
 npm run build
 surge public my-project.surge.sh
 ```
+
+<h1 dir="auto">File name changes</h1>
+<p dir="auto">The router is now folder-based, not file-based. This means there's now only one way to describe a route.</p>
+<p dir="auto">Here's how you define that there's a route <code class="notranslate">/about</code>:</p>
+<table role="table">
+<thead>
+<tr>
+<th>Old</th>
+<th>New</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>routes/about/index.svelte</td>
+<td>routes/about/+page.svelte</td>
+</tr>
+<tr>
+<td>routes/about.svelte</td>
+<td>routes/about/+page.svelte</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">The same principle applies to parameterized routes:</p>
+<table role="table">
+<thead>
+<tr>
+<th>Old</th>
+<th>New</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>routes/[slug]/index.svelte</td>
+<td>routes/[slug]/+page.svelte</td>
+</tr>
+<tr>
+<td>routes/[slug].svelte</td>
+<td>routes/[slug]/+page.svelte</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">The naming of the routing files has changed. They correspond as follows (assuming the first variant of the table above):</p>
+<table role="table">
+<thead>
+<tr>
+<th>Old Description</th>
+<th>Old</th>
+<th>New</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page UI</td>
+<td>index.svelte</td>
+<td>+page.svelte</td>
+</tr>
+<tr>
+<td>load function etc</td>
+<td><code class="notranslate">&lt;script context="module"&gt;</code> in index.svelte</td>
+<td>+page.js</td>
+</tr>
+<tr>
+<td>page endpoint</td>
+<td>index.js with index.svelte next to it</td>
+<td>+page.server.js</td>
+</tr>
+<tr>
+<td>standalone endpoint</td>
+<td>index.js without index.svelte next to it</td>
+<td>+server.js</td>
+</tr>
+<tr>
+<td>layout UI</td>
+<td>__layout.svelte</td>
+<td>+layout.svelte</td>
+</tr>
+<tr>
+<td>load function etc</td>
+<td><code class="notranslate">&lt;script context="module"&gt;</code> in __layout.svelte</td>
+<td>+layout.js</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>+layout.server.js (server GET for layout, didn't exist previously)</td>
+</tr>
+<tr>
+<td>error UI</td>
+<td>__error.svelte</td>
+<td>+error.svelte</td>
+</tr>
+<tr>
+<td>load function etc</td>
+<td><code class="notranslate">&lt;script context="module"&gt;</code> in __error.svelte</td>
+<td>No longer exists</td>
+</tr>
+</tbody>
+</table>
+<p dir="auto">To summarize: All route files have a <code class="notranslate">+</code> sign in front now to distinguish them at a glance and group them, the contents of <code class="notranslate">&lt;script context="module"&gt;</code> is moved into a separate file, which means that there's now at most three files per page (or layout).</p>
+    </td>
+  </tr>
+
+    </tbody>
+  </table>
+ 
